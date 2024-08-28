@@ -14,15 +14,13 @@
 
 Game::Game()
 {
-	//pushState(new PlayState(this));
-    //pushState(new MenuState(this));  //we want to create a pointer at the game objects address. this will enter our menu.
+    // pushState(new PlayState(this));
+    // pushState(new MenuState(this));  //we want to create a pointer at the game objects address. this will enter our menu.
     window.create(sf::VideoMode(800, 600), "SFML TEMPLATE");
     window.setFramerateLimit(60);
     states.push_back(new MenuState(this));
     states.push_back(new PlayState(this));
     states.push_back(new PauseState(this));
-
-
 }
 
 Game::~Game()
@@ -33,10 +31,8 @@ Game::~Game()
 
 void Game::pushState(game_states state)
 {
-	state_index=state;
-
+    state_index = state;
 }
-
 
 void Game::popState()
 {
@@ -45,16 +41,14 @@ void Game::popState()
     states.pop_back();
 }
 
-
-GameState* Game::CurrentState()
+GameState *Game::CurrentState()
 {
     if (states.empty())
         return nullptr;
     else
-    	return states.at(state_index);
-        //return states.back();
+        return states.at(state_index);
+    // return states.back();
 }
-
 
 void Game::gameLoop()
 {
@@ -62,28 +56,26 @@ void Game::gameLoop()
 
     while (window.isOpen())
     {
-        //control frame rate (you can ignore this stuff for now)
+        // control frame rate (you can ignore this stuff for now)
         sf::Time elapsed = clock.restart();
         float dt = elapsed.asSeconds();
 
-        //exception handling
+        // exception handling
         if (CurrentState() == nullptr)
             continue;
 
-        //get user input for current game state
+        // get user input for current game state
         CurrentState()->handleInput();
 
-        //update anything neccessary
+        // update anything neccessary
         CurrentState()->update(dt);
 
-        //clear window
+        // clear window
         window.clear();
 
-        //draw anything in the current game state
+        // draw anything in the current game state
         CurrentState()->draw(dt);
 
         window.display();
     }
 }
-
-

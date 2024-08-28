@@ -15,12 +15,11 @@
 class PlayState : public GameState
 {
 public:
-
     virtual void draw(const float dt);
     virtual void update(const float dt);
     virtual void handleInput();
 
-     PlayState(Game* game);
+    PlayState(Game *game);
 
 private:
     void PauseGame();
@@ -28,9 +27,6 @@ private:
     sf::Texture mushroom_texture;
     sf::Sprite mushroom;
     sf::Vector2u size;
-
-
 };
-
 
 #endif /* PLAYSTATE_HPP_ */

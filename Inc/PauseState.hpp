@@ -13,22 +13,20 @@
 
 #include "GameState.hpp"
 
-class PauseState : public GameState {
+class PauseState : public GameState
+{
 
 public:
-    PauseState(Game* game);
+    PauseState(Game *game);
 
     void draw(const float dt);
     void update(const float dt);
     void handleInput();
 
 private:
-    std::vector<sf::Sprite*> sprites;
-    std::vector<sf::Texture*>textures;
+    std::vector<sf::Sprite *> sprites;
+    std::vector<sf::Texture *> textures;
     void playGame();
-
 };
-
-
 
 #endif /* PAUSESTATE_HPP_ */

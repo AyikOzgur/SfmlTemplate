@@ -14,9 +14,9 @@
 
 using namespace std;
 
-int main() {
-
-    Game game; //create game object (so far this constructor just intiializes our window)
+int main()
+{
+    Game game; // create game object (so far this constructor just intiializes our window)
 
     game.gameLoop();
 
