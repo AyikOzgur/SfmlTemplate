@@ -52,19 +52,15 @@ void MenuState::handleInput()
     {
         switch (event.type)
         {
-            /* Close the window */
         case sf::Event::Closed:
             game->window.close();
             break;
-
-            /* Change Between game states */
         case sf::Event::KeyPressed:
             if (event.key.code == sf::Keyboard::Escape)
                 game->window.close();
             else if (event.key.code == sf::Keyboard::Space)
                 loadgame();
             break;
-
         case sf::Event::MouseButtonPressed:
 
             if (sprites.at(0)->getGlobalBounds().contains(game->window.mapPixelToCoords(sf::Mouse::getPosition(game->window))))
@@ -93,18 +89,6 @@ void MenuState::update(const float dt)
 
 void MenuState::draw(const float dt)
 {
-
-    //    sf::RectangleShape rect;
-    //    rect.setPosition(sf::Vector2f(100, 100));
-    //    rect.setSize(sf::Vector2f(100, 100));
-    //    rect.setFillColor(sf::Color::Red);
-    //
-    //    game->window.draw(rect);
-
-    for (int i = 0; i < 4; i++)
-    {
-        //    game->window.draw(*shapes[i]);
-    }
     game->window.draw(*sprites.at(0));
     game->window.draw(*sprites.at(1));
     game->window.draw(*sprites.at(2));
@@ -112,7 +96,6 @@ void MenuState::draw(const float dt)
 
 void MenuState::loadgame()
 {
-
     // make this load the play game game state.
     game->pushState(game_states::Playing);
 }
