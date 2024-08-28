@@ -41,12 +41,12 @@ void PauseState::handleInput()
     {
         switch (event.type)
         {
-            /* Close the window */
+        /* Close the window */
         case sf::Event::Closed:
             game->window.close();
             break;
 
-            /* Change Between game states */
+        /* Change Between game states */
         case sf::Event::KeyPressed:
             if (event.key.code == sf::Keyboard::Escape)
                 playGame();

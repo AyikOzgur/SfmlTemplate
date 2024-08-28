@@ -15,7 +15,6 @@
 
 void PlayState::draw(const float dt)
 {
-
     game->window.draw(mushroom);
 }
 
@@ -42,12 +41,9 @@ void PlayState::handleInput()
     {
         switch (event.type)
         {
-            /* Close the window */
         case sf::Event::Closed:
             this->game->window.close();
             break;
-
-            // pause game
         case sf::Event::KeyPressed:
             if (event.key.code == sf::Keyboard::Escape)
                 PauseGame();

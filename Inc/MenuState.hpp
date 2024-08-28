@@ -18,8 +18,6 @@ public:
 
 private:
     sf::View view;
-    //    std::vector<sf::RectangleShape*>shapes;
-    //    std::vector<sf::Text*> textes;
 
     std::vector<sf::Sprite *> sprites;
     std::vector<sf::Texture *> textures;
